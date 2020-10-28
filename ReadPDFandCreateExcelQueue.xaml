@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>765.333333333333,4621.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>765.333333333333,4537.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReadPDFandCreateExcelQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -62,7 +62,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This Sequence is to &#xA;1) Create Excel by Name CustomerName_Invoice No &#xA;2) Reach Each PDF Table Data and writing that to DataTable&#xA;3) To Write DataTable Data in Excel Created" DisplayName="ReadPDFandCreateExcelQueue" sap:VirtualizedContainerService.HintSize="745.333333333333,4561.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This Sequence is to &#xA;1) Create Excel by Name CustomerName_Invoice No &#xA;2) Reach Each PDF Table Data and writing that to DataTable&#xA;3) To Write DataTable Data in Excel Created" DisplayName="ReadPDFandCreateExcelQueue" sap:VirtualizedContainerService.HintSize="745.333333333333,4437.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FolderPath" />
       <Variable x:TypeArguments="s:String[]" Name="arrFiles" />
@@ -100,19 +100,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each to loop throuh all files downloaded in Attachment folder" sap:VirtualizedContainerService.HintSize="703.333333333333,4102.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrFiles]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each to loop throuh all files downloaded in Attachment folder" sap:VirtualizedContainerService.HintSize="703.333333333333,3978.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="666.666666666667,3965.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence sap:VirtualizedContainerService.HintSize="666.666666666667,3841.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="624.666666666667,3873.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="624.666666666667,3749.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="FileName" />
                 <Variable x:TypeArguments="x:String" Name="CustName" />
@@ -241,54 +241,52 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ClearDataTable>
-              <Assign sap2010:Annotation.AnnotationText="assigning the selector value to a variable and in selector passing hthe variable counter for table idx value&#xA;&quot;&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt; &lt;ctrl idx='&quot;+counter.ToString+&quot;' role='table' /&gt;&quot;" sap:VirtualizedContainerService.HintSize="582.666666666667,216.666666666667" sap2010:WorkflowViewState.IdRef="Assign_7">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[tableSelector]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">["&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl idx='"+counter.ToString+"' role='table'/&gt;"]</InArgument>
-                </Assign.Value>
+              <While sap2010:Annotation.AnnotationText="To go through each Page Table as each page has two tables and writing data to DataTable InvoiceDT and each time appendin that data to &quot;CustomerName_InvoiceNo.xlsx&quot;" sap:VirtualizedContainerService.HintSize="582.666666666667,1502.66666666667" sap2010:WorkflowViewState.IdRef="While_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </Assign>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="582.666666666667,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[tableSelector]" />
-              <While sap2010:Annotation.AnnotationText="To go through each Page Table as each page has two tables and writing data to DataTable InvoiceDT and each time appendin that data to &quot;CustomerName_InvoiceNo.xlsx&quot;" sap:VirtualizedContainerService.HintSize="582.666666666667,1144" sap2010:WorkflowViewState.IdRef="While_1">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <While.Condition>
-                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="counter&lt;=pageCount*2" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-                </While.Condition>
-                <Sequence sap:VirtualizedContainerService.HintSize="536,938" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <While.Condition>[counter&lt;=pageCount*2]</While.Condition>
+                <Sequence sap:VirtualizedContainerService.HintSize="536,1296.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap2010:Annotation.AnnotationText="assigning the selector value to a variable and in selector passing hthe variable counter for table idx value&#xA;&quot;&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt; &lt;ctrl idx='&quot;+counter.ToString+&quot;' role='table' /&gt;&quot;" sap:VirtualizedContainerService.HintSize="494,216.666666666667" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[tableSelector]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl idx='"+counter.ToString+"' role='table'/&gt;"]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="494,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[tableSelector]" />
                   <Sequence sap:VirtualizedContainerService.HintSize="494,846" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'AcroRd32.exe JaneDoe_01...'" sap:VirtualizedContainerService.HintSize="452,652.666666666667" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="ef49a0c91c8abe4f342934eecd69870c" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'AcroRd32.exe JaneDoe_01...'" sap:VirtualizedContainerService.HintSize="452,754" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="ef49a0c91c8abe4f342934eecd69870c" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                           </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="418,506.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <Sequence sap:VirtualizedContainerService.HintSize="418,608" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,414.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,516" sap2010:WorkflowViewState.IdRef="Sequence_14">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -308,24 +306,22 @@
                               </ui:ExtractData>
                               <ui:AppendRange DataTable="[InvoiceDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_Excels+ExcelName]" />
                               <ui:ClearDataTable DataTable="[InvoiceDT]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_6" />
+                              <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
                             </Sequence>
                           </Sequence>
                         </ActivityAction>
                       </ui:WindowScope.Body>
                     </ui:WindowScope>
-                    <Assign sap:VirtualizedContainerService.HintSize="452,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
-                      </Assign.Value>
-                    </Assign>
                   </Sequence>
                 </Sequence>
               </While>
-              <ui:ClearDataTable DataTable="[custDT]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="582.666666666667,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_7" />
-              <ui:ClearDataTable DataTable="[InvoiceDT]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="582.666666666667,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_8" />
               <ui:CloseApplication DisplayName="Close Application 'AcroRd32.exe JaneDoe_01...'" sap:VirtualizedContainerService.HintSize="582.666666666667,106" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
                 <ui:CloseApplication.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="87f9b5ff2b24ca6e8b284351185b6141" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
